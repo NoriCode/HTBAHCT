@@ -1,0 +1,8 @@
+fussball 40 0
+schauspielern 68 2
+wikis 40 2
+bohnen 52 2
+militär 40 1
+beweglichkeit 30 0
+geschichte 75 1
+marketing 55 1
