@@ -12,7 +12,6 @@ public class Gui extends JFrame {
 
 
     public Gui() {
-        int counter = 1;
         setLayout(null);
         setVisible(true);
         setSize(400, 400);
@@ -23,29 +22,4 @@ public class Gui extends JFrame {
         setAlwaysOnTop(true);
         setBackground(Color.WHITE);
     }
-
-/*
-    public List<Skill> getInteractionSkills() {
-        return generateSkillList(interactionSkills,0);
-    }
-
-    public List<Skill> getKnowledgeSkills() {
-        return generateSkillList(knowledgeSkills,1);
-    }
-
-    public List<Skill> getSocialSkills() {
-        return generateSkillList(socialSkills,2);
-    }
-
-    private List<Skill> generateSkillList(List<JTextField> skills, int skillgroup) {
-        List<Skill> skillList = new ArrayList<>();
-
-        for (JTextField skillname : skills) {
-            skillList.add(new Skill(skillname.getText(),0, skillgroup));
-        }
-
-        return skillList;
-    }
-
- */
 }

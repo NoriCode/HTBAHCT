@@ -1,11 +1,37 @@
-import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        charactertest();
+        //charactertest();
+        System.out.println(diceroller(2));
+        System.out.println(diceroller(3));
+        System.out.println(diceroller(4));
+        System.out.println(diceroller(6));
+        System.out.println(diceroller(8));
+        System.out.println(diceroller(10));
+        System.out.println(diceroller(20));
+        System.out.println(diceroller(100));
+    }
+
+    private static int diceroller(int diceIn) {
+        int dice;
+        long systemTime = System.currentTimeMillis();
+        long random0 = (long) (Math.random() * 1000000000);
+        long random1 = (long) (Math.random() * 1000000000);
+        long random2 = (long) (Math.random() * 1000000000);
+        long random3 = (long) (Math.random() * 1000000000);
+        long random4 = (long) (Math.random() * 1000000000);
+
+
+        long value1 = systemTime - random0 - random1 - random2 - random3 - random4;
+        long value2 = systemTime - value1 - random2 - random4;
+
+        value1 *= Math.random() * 10;
+        value2 *= Math.random() * 10;
+        dice = (int) (((value1 % diceIn + value2 % diceIn) % diceIn) + 1);
+        return dice;
     }
 
     private static void charactertest() throws IOException {
