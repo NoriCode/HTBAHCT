@@ -10,6 +10,16 @@ public class Skill {
         this.skillgroupID = skillgroupID;
     }
 
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "name='" + name + '\'' +
+                ", skillgroupID=" + skillgroupID +
+                ", basePoints=" + basePoints +
+                ", actualPoints=" + actualPoints +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

@@ -22,6 +22,7 @@ public class Hero {
     private List<String> inventory = new ArrayList<>();
 
     private final List<Skill> skills;
+
     private final List<List<Skill>> skillsSorted = new ArrayList<>();
 
 
@@ -48,6 +49,50 @@ public class Hero {
         overView = new CharacterView(this);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public String getFamilyStatus() {
+        return familyStatus;
+    }
+
+    public char getSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public List<Integer> getSkillGroupPoints() {
+        return skillGroupPoints;
+    }
+
+    public List<String> getInventory() {
+        return inventory;
+    }
+
+    public List<List<Skill>> getSkillsSorted() {
+        return skillsSorted;
+    }
+
     public void addItemToInventory(String item) {
         this.inventory.add(item);
     }
@@ -57,13 +102,13 @@ public class Hero {
         for (int i = 1; i < 7; i++) {
             testsum += bodyPartHP[i];
         }
-        if(testsum!=160){
-            testsum = 160-testsum;
+        if (testsum != 160) {
+            testsum = 160 - testsum;
         }
-        this.bodyPartHP[0]= this.bodyPartHP[0]-testsum;
+        this.bodyPartHP[0] = this.bodyPartHP[0] - testsum;
     }
 
-    public int[] getBodyPartHP(){
+    public int[] getBodyPartHP() {
         return bodyPartHP;
     }
 
@@ -84,8 +129,9 @@ public class Hero {
     }
 
     private void sortSkills() {
-        List<Skill> tempSkill = new ArrayList<>();
+        List<Skill> tempSkill;
         for (int i = 0; i < 3; i++) {
+            tempSkill = new ArrayList<>();
             for (Skill skill : skills) {
                 if (skill.getSkillgroupID() == i) {
                     tempSkill.add(skill);
