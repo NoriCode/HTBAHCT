@@ -1,21 +1,22 @@
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CharacterView extends JFrame {
 
     List<JLabel> healthpoints = new ArrayList<>();
     List<JLabel> healthpointsText = new ArrayList<>();
-    List<JLabel> skillGroups = new ArrayList<>();
+
+    List<JLabel> skillGroups = new ArrayList<>();List<JLabel> skillGroupPoints = new ArrayList<>();
+
     List<JLabel> interactionSkills = new ArrayList<>();
     List<JLabel> knowledgeSkills = new ArrayList<>();
     List<JLabel> socialSkills = new ArrayList<>();
+
     List<JLabel> interactionSkillsBasePoints = new ArrayList<>();
     List<JLabel> knowledgeSkillsBasePoints = new ArrayList<>();
     List<JLabel> socialSkillsBasePoints = new ArrayList<>();
+
     List<JLabel> interactionSkillsActualPoints = new ArrayList<>();
     List<JLabel> knowledgeSkillsActualPoints = new ArrayList<>();
     List<JLabel> socialSkillsActualPoints = new ArrayList<>();
@@ -40,17 +41,15 @@ public class CharacterView extends JFrame {
     }
 
     private void skillGroupView() {
-        JLabel skillGroup, skillGroupPoints;
+        JLabel skillGroup, skillGroupPoint;
         String name, points;
         for (int i = 0; i < 3; i++) {
             skillGroup = new JLabel();
             skillGroup.setHorizontalAlignment(SwingConstants.CENTER);
-            skillGroup.setBounds(i * 200, 150, 100, 25);
-            skillGroup.setBackground(Color.white);
+            skillGroup.setBounds(i * 250, 150, 100, 25);
 
-            skillGroupPoints = new JLabel();
-            skillGroupPoints.setHorizontalAlignment(SwingConstants.LEFT);
-            skillGroupPoints.setBounds(i * 200 + 200, 150, 100, 25);
+            skillGroupPoint = new JLabel();
+            skillGroupPoint.setBounds(i * 250 + 125, 150, 100, 25);
 
             switch (i) {
                 case 0 -> {
@@ -69,35 +68,33 @@ public class CharacterView extends JFrame {
             }
 
             skillGroup.setText(name);
-            skillGroupPoints.setText(points);
+            skillGroupPoint.setText(points);
 
             add(skillGroup);
-            add(skillGroupPoints);
+            add(skillGroupPoint);
 
-            healthpoints.add(skillGroup);
-            healthpointsText.add(skillGroupPoints);
+            skillGroups.add(skillGroup);
+            skillGroupPoints.add(skillGroupPoint);
         }
     }
 
     private void generateSkillView() {
-        int skillGroupId;
         JLabel skillname, skillBasePoints, skillActualPoints;
         String name, basePoints, actualPoints;
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < this.myHero.getSkillsSorted().get(i).size(); j++) {
-                skillGroupId = this.myHero.getSkills().get(j).getSkillgroupID();
-
                 skillname = new JLabel();
-                skillname.setHorizontalAlignment(SwingConstants.CENTER);
-                skillname.setBounds(i * 200, 175 + j * 25, 100, 25);
+                skillname.setVisible(true);
+                skillname.setBounds(i * 250, 175 + j * 25, 100, 25);
 
                 skillBasePoints = new JLabel();
-                skillBasePoints.setHorizontalAlignment(SwingConstants.LEFT);
-                skillBasePoints.setBounds(i * 200 + 100, 175 + j * 25, 100, 25);
+                skillBasePoints.setVisible(true);
+                skillBasePoints.setBounds(i * 250 + 100, 175 + j * 25, 100, 25);
 
                 skillActualPoints = new JLabel();
-                skillActualPoints.setHorizontalAlignment(SwingConstants.LEFT);
-                skillActualPoints.setBounds(i * 200 + 200, 175 + j * 25, 100, 25);
+                skillActualPoints.setVisible(true);
+                skillActualPoints.setBounds(i * 250 + 150, 175 + j * 25, 100, 25);
 
                 name = this.myHero.getSkillsSorted().get(i).get(j).getName();
                 basePoints = String.valueOf(this.myHero.getSkillsSorted().get(i).get(j).getBasePoints());
@@ -105,7 +102,7 @@ public class CharacterView extends JFrame {
 
                 skillname.setText(name);
                 skillBasePoints.setText(basePoints);
-                skillBasePoints.setText(actualPoints);
+                skillActualPoints.setText(actualPoints);
 
                 add(skillname);
                 add(skillBasePoints);
@@ -129,7 +126,6 @@ public class CharacterView extends JFrame {
                     }
                 }
             }
-
         }
     }
 
@@ -147,27 +143,13 @@ public class CharacterView extends JFrame {
             hpCounter.setBounds(i * 100, 50, 100, 25);
 
             switch (i) {
-                case 0 -> {
-                    text = "HP";
-                }
-                case 1 -> {
-                    text = "Head ";
-                }
-                case 2 -> {
-                    text = "Left Arm";
-                }
-                case 3 -> {
-                    text = "Left Leg";
-                }
-                case 4 -> {
-                    text = "Torso";
-                }
-                case 5 -> {
-                    text = "Right Arm";
-                }
-                case 6 -> {
-                    text = "Right Leg";
-                }
+                case 0 -> text = "HP";
+                case 1 -> text = "Head ";
+                case 2 -> text = "Left Arm";
+                case 3 -> text = "Left Leg";
+                case 4 -> text = "Torso";
+                case 5 -> text = "Right Arm";
+                case 6 -> text = "Right Leg";
                 default -> throw new IllegalStateException("Unexpected value: " + i);
             }
 
