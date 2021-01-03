@@ -1,0 +1,6 @@
+Character Sheet as Gui
+Create new Character Window
+Dice Roll Section
+all Character Skills overview
+reduce hp function
+create character is not possible if skill > 100 after bonus is applied

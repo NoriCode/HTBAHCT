@@ -1,6 +1,8 @@
 import java.util.*;
 
 public class Hero {
+    private CharacterView overView;
+
     private final String name;
     private final String job;
     private final String familyStatus;
@@ -8,7 +10,6 @@ public class Hero {
     private final char sex;
 
     private final int age;
-    private int hp;
     private final int size;
     private final int weight;
 
@@ -34,9 +35,8 @@ public class Hero {
         this.age = age;
         this.size = size;
         this.weight = weight;
-
-        this.hp = 100;
-        this.bodyPartHP = new int[]{20, 20, 20, 20, 20, 60};
+        //arm arm leg leg head torso HP
+        this.bodyPartHP = new int[]{100, 20, 20, 20, 60, 20, 20};
 
         this.skills = skills;
 
@@ -45,6 +45,7 @@ public class Hero {
         calculateActualSkillpoints();
         sortSkills();
         //printSkills();
+        overView = new CharacterView(this);
     }
 
     public void addItemToInventory(String item) {
@@ -52,12 +53,18 @@ public class Hero {
     }
 
     public void calculateHp() {
-        for (int bodyPart : bodyPartHP) {
-            this.hp = this.hp + bodyPart;
+        int testsum = 0;
+        for (int i = 1; i < 7; i++) {
+            testsum += bodyPartHP[i];
         }
-        if (this.hp > 100) {
-            this.hp = 100;
+        if(testsum!=160){
+            testsum = 160-testsum;
         }
+        this.bodyPartHP[0]= this.bodyPartHP[0]-testsum;
+    }
+
+    public int[] getBodyPartHP(){
+        return bodyPartHP;
     }
 
     private void calculateSkillGroups() {
