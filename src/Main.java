@@ -1,11 +1,11 @@
 import java.io.*;
-import java.security.SecureRandom;
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-         charactertest();
+        /*
+        charactertest();
         System.out.println(diceRoller(2));
         System.out.println(diceRoller(3));
         System.out.println(diceRoller(4));
@@ -14,6 +14,8 @@ public class Main {
         System.out.println(diceRoller(10));
         System.out.println(diceRoller(20));
         System.out.println(diceRoller(100));
+        */
+        DiceViewer dice = new DiceViewer();
     }
 
     private static int diceRoller(int diceSize) {

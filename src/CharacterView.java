@@ -24,10 +24,10 @@ public class CharacterView extends JFrame {
     Hero myHero;
 
     public CharacterView(Hero myHero) {
+
         this.myHero = myHero;
 
         setLayout(null);
-        setVisible(true);
         setSize(1600, 900);
         setTitle(this.myHero.getName());
         setResizable(false);
@@ -38,6 +38,9 @@ public class CharacterView extends JFrame {
         generateHealtpointView();
         skillGroupView();
         generateSkillView();
+
+        //This needs to be the last Code
+        setVisible(true);
     }
 
     private void skillGroupView() {
@@ -130,7 +133,6 @@ public class CharacterView extends JFrame {
     }
 
     private void generateHealtpointView() {
-
         JLabel hpText, hpCounter;
         String text;
         for (int i = 0; i < 7; i++) {
