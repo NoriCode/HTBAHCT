@@ -24,7 +24,7 @@ public class DiceViewer extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
+        //setAlwaysOnTop(true);
 
         generateDice();
 
@@ -34,29 +34,43 @@ public class DiceViewer extends JFrame {
 
     private void rollDice() {
         diceRoller(2, Integer.parseInt(diceNumbers.get(0).getText()));
-        diceRoller(3, Integer.parseInt(diceNumbers.get(0).getText()));
-        diceRoller(4, Integer.parseInt(diceNumbers.get(0).getText()));
-        diceRoller(6, Integer.parseInt(diceNumbers.get(0).getText()));
-        diceRoller(8, Integer.parseInt(diceNumbers.get(0).getText()));
-        diceRoller(10, Integer.parseInt(diceNumbers.get(0).getText()));
-        diceRoller(20, Integer.parseInt(diceNumbers.get(0).getText()));
-        diceRoller(100, Integer.parseInt(diceNumbers.get(0).getText()));
+        diceRoller(3, Integer.parseInt(diceNumbers.get(1).getText()));
+        diceRoller(4, Integer.parseInt(diceNumbers.get(2).getText()));
+        diceRoller(6, Integer.parseInt(diceNumbers.get(3).getText()));
+        diceRoller(8, Integer.parseInt(diceNumbers.get(4).getText()));
+        diceRoller(10, Integer.parseInt(diceNumbers.get(5).getText()));
+        diceRoller(20, Integer.parseInt(diceNumbers.get(6).getText()));
+        diceRoller(100, Integer.parseInt(diceNumbers.get(7).getText()));
 
         printDice();
+
+        for (JTextField diceNumber : diceNumbers) {
+            diceNumber.setText("0");
+        }
     }
 
     private void printDice() {
         JLabel result;
         diceResult.clear();
+        /*
         for (int i = 0; i < diceRolls.size(); i++) {
-
             result = new JLabel();
+            result.setVisible(true);
             result.setHorizontalAlignment(SwingConstants.CENTER);
-            result.setBounds(diceRolls.get(i).getDiceGroup() * 100, diceRolls.get(i).getDiceGroup()*100, 100, 25);
+            result.setBounds(i * 100, 300, 100, 25);
             result.setText(String.valueOf(diceRolls.get(i).getDiceresult()));
+
+            System.out.println("Result: " + diceRolls.get(i).getDiceresult() + " Group: " + diceRolls.get(i).getDiceGroup());
 
             add(result);
             diceResult.add(result);
+        }*/
+
+        for(int i = 0; i < 8; i++){
+            result = new JLabel();
+            result.setHorizontalAlignment(SwingConstants.CENTER);
+            result.setBounds(i * 100, 100, 100, 8); result.setText("hello");
+            add(result);
         }
     }
 
